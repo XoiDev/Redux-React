@@ -3,19 +3,18 @@ import './App.css';
 import Counter from './components/Counter';
 import { useSelector, useDispatch } from 'react-redux';
 import {toggleDarkMode} from "./redux-toolkit/globalSlice"
+import Card from './components/Card';
 function App() {
-  const globalOptions = useSelector((state)=> state.global)
-  const dispatch = useDispatch()
-  const handleDarkMode = ()=>{
-    dispatch(toggleDarkMode(true))
-  }
-  
+  const globalOptions = useSelector((state) => state.global);
+  console.log("App ~ globalOptions", globalOptions);
+  // const handleToggleDarkmode = () => {
+  //   dispatch(toggleDarkMode(true));
+  // };
+
   return (
-    <div className='mt-10'>
-       <h2>this is value:</h2>
-        <Counter>
-        </Counter>
-        <button onClick={handleDarkMode} className="text-white bg-blue-400 border border-gray-300" >toggle darkmode</button>
+    <div>
+      <Card></Card>
+      <Counter></Counter>
     </div>
   );
 }
