@@ -1,6 +1,7 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import logger from 'redux-logger';
 import counterSlice from "./counterSlice";
-import globalSlice from "./globalSlice";
+import globalSlice, { toggleSideBar } from "./globalSlice";
 
 const reducer = combineReducers({
     counter: counterSlice,
@@ -9,6 +10,9 @@ const reducer = combineReducers({
 
 const store = configureStore({
     reducer,
+    middleware: (gDM) => gDM().concat(logger)
 })
+
+store.dispatch(toggleSideBar(true))
 
 export default store;
