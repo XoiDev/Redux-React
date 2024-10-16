@@ -4,7 +4,7 @@ import { toggleSideBar } from "../redux-toolkit/globalSlice";
 
 const ButtonToggle = () => {
   const {SideBarToggle} = useSelector(state => state.global)
-  console.log(SideBarToggle);
+
   
   const dispatch = useDispatch()
   const hadleToggle = ()=>{
@@ -27,5 +27,6 @@ const ButtonToggle = () => {
     </button>
   );
 };
+
 
 export default ButtonToggle;
